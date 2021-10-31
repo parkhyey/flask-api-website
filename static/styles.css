@@ -1,0 +1,190 @@
+body {
+    background-image: url("./img/nightsky.jpg");
+    background-color: rgb(29, 26, 68);    
+    font-family: Century Gothic Light;
+}
+#header {
+    padding: 2em;
+    font-size: 1.1em;
+}
+#header a {
+    text-decoration: none;
+}
+#home {
+    color:white;
+}
+h2 {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+h3 {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+#star-signs {
+    font-size: 1em;
+    text-decoration: none;
+    text-align: center;
+    padding: 2em 8em 1em 8em;
+}
+#star-signs a {
+    display: block;
+    padding: 2em 2em;
+    border: none;
+    text-decoration: none;
+}
+#star-signs a:hover {
+    border: none;
+    text-decoration: none;
+    background-color: rgb(255,255,255,0.1);
+}
+#star-container1 {
+    column-count: 4;
+}
+#star-container2 {
+    column-count: 4;
+}
+#star-container3 {
+    column-count: 4;
+}
+.signs {
+    text-decoration: none;
+    background-color: transparent;
+    font-weight: bold;
+}
+.signs-a {
+    color: white;
+}
+.star-names {
+    font-size: 1.2em;
+}
+.star-dates {
+    font-size: 0.8em;
+}
+#select {
+    font-weight: lighter;
+    color: white;
+    text-align: center;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+#select span {
+    font-size: 1em;
+}
+hr {
+    color: white;
+    margin: 2em 0em;
+}
+.general-info {
+    color: white;
+    text-align: center;
+    font-size: 1em;
+    padding: 1em;
+    line-height: 1.5em;
+    font-style: italic;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#your-sign {
+    color: white;
+    text-align: center;
+    font-size: 1.5em;
+    padding-bottom: 1em;
+    text-decoration: none;
+}
+.select-class {
+    font-weight: bold;
+    font-size: 1.2;
+    padding: 3em 10em;
+    column-count: 3;
+}
+#select-list {
+    text-align: center;
+    color: white;
+    padding: 1em;
+}
+#select-list:hover {
+    background-color:rgb(255,255,255,0.1);
+}
+.subpages {
+    color: white;
+}
+.subtitles {
+    text-align: center;
+    font-weight: bold;
+    font-size: 2em;
+    padding: 2em 1em 1.5em 1em;
+}
+#horoscope-contents {
+    display: block;
+    text-align: center;
+    margin: auto;
+    width: 50%;
+    line-height: 2em;
+}
+#back {
+    position: absolute;
+    padding: 1em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color:rgb(255,255,255,0.2);
+    border: solid 1px rgb(255,255,255,0.6);
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1em;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+#back:hover {
+    background-color: rgb(255,255,255,0.3);
+}
+#travel {
+display: block;
+column-count: 2;
+}
+#picture {
+    text-align: right;
+}
+#travel-text p {
+    margin: auto;
+    width: 800px;
+    padding: 1em 0em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#birthday-result {
+    font-weight: bold;
+}
+#find-signs {
+    text-align: center;
+    padding-top: 1em;
+}
+#find-signs h3 {
+    padding-bottom: 0.5em;
+}
+#birthday {
+    padding: 0.5em;
+}
+#showmysign {
+    background-color: rgb(255,255,255,0.2);
+    color: white;
+    padding: 0.5em;
+    font-family: Century Gothic Light;
+}
+#results {
+    text-align: center;
+    color: white;
+}
+#bir {
+    color: lightblue;
+    font-size: 1.3em;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+#compatibility-contents {
+    text-align: center;
+}
+#google-reviews {
+    color: white;
+}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Astrology Zone</title>
+    <link rel="stylesheet" href="../static/styles.css" />
+  </head>
+
+  <body>
+    <div id="header"></div>
+    <div id="home">
+      <div id="select">Select your star sign <span>by date of birth</span></div>
+      <div id="star-signs">
+        <div id="star-container1">
+          <a href="signs/Aries.html" class="signs-a"
+            ><div id="Aries" class="signs">
+              <span class="star-names">Aries<br /></span
+              ><span class="star-dates">MAR 21 - APR 19</span>
+            </div></a
+          >
+          <a href="signs/Taurus.html" class="signs-a"
+            ><div id="Taurus" class="signs">
+              <span class="star-names">Taurus</span><br /><span
+                class="star-dates"
+                >APR 20 – MAY 20</span
+              >
+            </div></a
+          >
+          <a href="signs/Gemini.html" class="signs-a"
+            ><div id="Gemini" class="signs">
+              <span class="star-names">Gemini</span><br /><span
+                class="star-dates"
+                >MAY 21 – JUN 21</span
+              >
+            </div></a
+          >
+          <a href="signs/Cancer.html" class="signs-a"
+            ><div id="Cancer" class="signs">
+              <span class="star-names">Cancer</span><br /><span
+                class="star-dates"
+                >JUN 22 – JUL 22</span
+              >
+            </div></a
+          >
+        </div>
+        <div id="star-container2">
+          <a href="signs/Leo.html" class="signs-a"
+            ><div id="Leo" class="signs">
+              <span class="star-names">Leo</span><br /><span class="star-dates"
+                >JUL 23 – AUG 22</span
+              >
+            </div></a
+          >
+          <a href="signs/Virgo.html" class="signs-a"
+            ><div id="Virgo" class="signs">
+              <span class="star-names">Virgo</span><br /><span
+                class="star-dates"
+                >AUG 23 – SEP 22</span
+              >
+            </div></a
+          >
+          <a href="signs/Libra.html" class="signs-a"
+            ><div id="Libra" class="signs">
+              <span class="star-names">Libra</span><br /><span
+                class="star-dates"
+                >SEP 23 – OCT 22</span
+              >
+            </div></a
+          >
+          <a href="signs/Scorpio.html" class="signs-a"
+            ><div id="Scorpio" class="signs">
+              <span class="star-names">Scorpio</span><br /><span
+                class="star-dates"
+                >OCT 23 – NOV 22</span
+              >
+            </div></a
+          >
+        </div>
+        <div id="star-container3">
+          <a href="signs/Sagittarius.html" class="signs-a"
+            ><div id="Sagittarius" class="signs">
+              <span class="star-names">Sagittarius</span><br /><span
+                class="star-dates"
+                >NOV 23 – DEC 21</span
+              >
+            </div></a
+          >
+          <a href="signs/Capricorn.html" class="signs-a"
+            ><div id="Capricorn" class="signs">
+              <span class="star-names">Capricorn</span><br /><span
+                class="star-dates"
+                >DEC 22 – JAN 19</span
+              >
+            </div></a
+          >
+          <a href="signs/Aquarius.html" class="signs-a"
+            ><div id="Aquarius" class="signs">
+              <span class="star-names">Aquarius</span><br /><span
+                class="star-dates"
+                >JAN 20 – FEB 18</span
+              >
+            </div></a
+          >
+          <a href="signs/Pisces.html" class="signs-a"
+            ><div id="Pisces" class="signs">
+              <span class="star-names">Pisces</span><br /><span
+                class="star-dates"
+                >FEB 19 – MAR 20</span
+              >
+            </div></a
+          >
+        </div>
+      </div>
+      <hr />
+      <div id="find-signs">
+        <h3>Select your birthday to find your star sign</h3>
+        <select name="birthday" id="birthday">
+          <option value="">(Month/Date)</option>
+          <option value="Aries">3/21 - 4/19</option>
+          <option value="Taurus">4/20 - 5/20</option>
+          <option value="Gemini">5/21 - 6/21</option>
+          <option value="Cancer">6/22 - 7/22</option>
+          <option value="Leo">7/23 - 8/22</option>
+          <option value="Virgo">8/23 - 9/22</option>
+          <option value="Libra">9/23 - 10/22</option>
+          <option value="Scorpio">10/23 - 11/22</option>
+          <option value="Sagittarius">11/23 – 12/21</option>
+          <option value="Capricorn">12/22 – 1/19</option>
+          <option value="Aquarius">1/20 – 2/18</option>
+          <option value="Pisces">2/19 – 3/20</option>
+        </select>
+        <button onclick="birthdayfunc();" id="showmysign">Show my sign</button>
+      </div>
+      <!-- place for results -->
+      <div id="results">
+        <div id="your-sign"></div>
+        <div id="birthday-result"></div>
+      </div>
+    </div>
+    <script src="./static/header.js"></script>
+    <script src="./static/frontend.js"></script>
+  </body>
+</html>

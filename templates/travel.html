@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Astrology Zone</title>
+    <link rel="stylesheet" href="../static/styles.css" />
+    <link rel="stylesheet" href="https://cdn.rawgit.com/stevenmonson/googleReviews/master/google-places.css">
+  </head>
+  <body>
+    <div>
+      <input type="button" id="back" value="Back" onclick="history.back()" />
+    </div>
+    <div class="subpages">
+      <div class="subtitles">Destiny Travel</div>
+      <div id="travel-text">
+        <div id="your-sign">[ Aquarius ]</div>
+        <p>
+          This fixed air sign is ruled by Uranus, the planet of questioning and
+          innovation. It’s also the humanitarian of the zodiac, plagued by
+          injustice and driven to change the world. (Notably, the earth is
+          entering the Age of Aquarius now—a cycle that only happens once every
+          2,150 years and manifests as “a blending of old and new, of science
+          and caring for people.”) White believes a knowledge-gathering trip to
+          Greece, the cradle of Western civilization, would make an inspiring
+          match for the water bearer. “It’s about experiencing the old temples
+          and all this ancient wisdom but then adapting those teachings to who
+          we are today,” she says. “Aquarius has to put its 21st-century twist
+          on it to truly benefit people.”
+        </p>
+      </div>
+      <div id="travel">
+        <div id="picture">
+          <img
+            src="../static/img/Zakinthos, Greece-unsplash.jpg"
+            width="500"
+            height="610"
+          />
+        </div>
+        <div id="maps">
+          <img src="../static/img/Zakinthos, Greece-map.jpg" width="500" height="610" />
+        </div>
+        <script src="./static/frontend.js"></script>
+      </div>
+    </div>
+    <div id="google-reviews"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/gh/stevenmonson/googleReviews@6e8f0d794393ec657dab69eb1421f3a60add23ef/google-places.js"></script> -->
+    <script src="./static/ratingservice.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDj7clChH8kmGTe5uga8JUz21Q0AAm_9iA&signed_in=true&libraries=places"></script>  
+    <script>
+    jQuery(document).ready(function( $ ) {
+       $("#google-reviews").googlePlaces({
+            placeId: 'ChIJ7zJxsDK3j4AR1qFYlrV07eg' //Find placeID @: https://developers.google.com/places/place-id
+          , render: ['reviews']
+          , min_rating: 4
+          , max_rows:2
+       });
+    });
+    </script>
+    
+  </body>
+</html>
