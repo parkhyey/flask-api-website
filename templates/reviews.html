@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Astrology Zone</title>
     <link rel="stylesheet" href="../static/styles.css" />
-    <link rel="stylesheet" href="https://cdn.rawgit.com/stevenmonson/googleReviews/master/google-places.css">
   </head>
   <body>
     <div>
@@ -41,23 +40,11 @@
         <div id="maps">
           <img src="../static/img/Zakinthos, Greece-map.jpg" width="500" height="610" />
         </div>
-        <script src="./static/frontend.js"></script>
       </div>
     </div>
-    <div id="google-reviews"></div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/stevenmonson/googleReviews@6e8f0d794393ec657dab69eb1421f3a60add23ef/google-places.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDj7clChH8kmGTe5uga8JUz21Q0AAm_9iA&signed_in=true&libraries=places"></script>  
-    <script>
-    jQuery(document).ready(function( $ ) {
-       $("#google-reviews").googlePlaces({
-            placeId: 'ChIJ7zJxsDK3j4AR1qFYlrV07eg' //Find placeID @: https://developers.google.com/places/place-id
-          , render: ['reviews']
-          , min_rating: 4
-          , max_rows:2
-       });
-    });
-    </script>
-    
+    <div><button id="get-reviews">Get reviews</button></div>
+    <div id="reviews"></div>
+    <script src="../static/httprequest.js"></script>
+
   </body>
 </html>
