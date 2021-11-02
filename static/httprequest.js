@@ -8,7 +8,7 @@ function bindButtons() {
         event.preventDefault();
         var req = new XMLHttpRequest();
         var place_id = 'ChIJW69I7FhZwokR61IbDPnsqTo'
-        var myURL = 'http://127.0.0.1:5000/?id' + place_id
+        var myURL = 'flip3.engr.oregonstate.edu/33133/' + place_id
 
         // send request using an asynchronous call via POST
         req.open('GET', myURL, false);
