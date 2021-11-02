@@ -4,6 +4,10 @@ import googlemaps
 
 app = Flask(__name__)
 
+@app.route('/', methods=['GET'])
+def home():
+    return "Connected!"
+
 @app.route('/<place_id>', methods=['GET'])
 def reviews(place_id):
     gmaps = googlemaps.Client(key='AIzaSyDj7clChH8kmGTe5uga8JUz21Q0AAm_9iA')
@@ -24,5 +28,5 @@ def reviews(place_id):
 
 # Listener
 if __name__ == "__main__":
-    port = int(os.environ.get('PORT', 33133))
-    app.run(port=port, debug=True) # Use 'python service.py' or 'flask run' to run in terminal
+    app.run(host="flip3.engr.oregonstate.edu", port=33133)
+
