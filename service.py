@@ -6,7 +6,8 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def home():
-    return "Connected!"
+    text = "To use, add '/place_ID' after the above url. You can find place ID at https://developers.google.com/places/place-id. For example, try '/ChIJW69I7FhZwokR61IbDPnsqTo'"
+    return text
 
 @app.route('/<place_id>', methods=['GET'])
 def reviews(place_id):
@@ -28,5 +29,6 @@ def reviews(place_id):
 
 # Listener
 if __name__ == "__main__":
-    app.run(host="flip3.engr.oregonstate.edu", port=33133)
-
+    #app.run(host="flip3.engr.oregonstate.edu", port=33133)
+    port = int(os.environ.get('PORT', 33133))
+    app.run(port=port, debug=True) 

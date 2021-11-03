@@ -2,25 +2,24 @@
 
 document.addEventListener('DOMContentLoaded', bindButtons);
 function bindButtons() {
-    // when button is clicked
-    document.getElementById('get-reviews').addEventListener('click', function (event) {
+
+    document.getElementById('wiki').addEventListener('click', function (event) {
         event.preventDefault();
         var req = new XMLHttpRequest();
-        var place_id = 'ChIJW69I7FhZwokR61IbDPnsqTo'
-        var myURL = 'flip3.engr.oregonstate.edu:33133/' + place_id
+        var wiki = 'Zakynthos'
+        var myURL = 'http://flip1.engr.oregonstate.edu:4752/' + wiki
 
-        // send request
         req.open('GET', myURL, true);
         req.setRequestHeader('Access-Control-Allow-Headers', '*');
         req.setRequestHeader('Content-Type', 'application/json');
         req.setRequestHeader('Access-Control-Allow-Origin', '*');
+        req.send(wiki);
 
-        req.send(place_id);
-        //req.send(JSON.stringify(place_id))
         var response = req.responseText;
+
         console.log(response)
-        console.log('here')
-        // display       
-        document.getElementById("reviews").innerHTML = response;
+        console.log('test')
+    
+        document.getElementById("wiki").innerHTML = response;
         })
 };

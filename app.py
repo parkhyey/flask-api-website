@@ -102,6 +102,11 @@ def Virgo():
     """Render Virgo.html"""
     return render_template("signs/Virgo.html")
 
+@app.route("/reviews.html")
+def reviews():
+    """Render reviews.html"""
+    return render_template("reviews.html")
+
 # Listener
 if __name__ == "__main__":
     #app.run(host="flip3.engr.oregonstate.edu:", port=33133)
