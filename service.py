@@ -30,5 +30,6 @@ def reviews(place_id):
 # Listener
 if __name__ == "__main__":
     #app.run(host="flip3.engr.oregonstate.edu", port=33133)
-    port = int(os.environ.get('PORT', 33133))
-    app.run(port=port, debug=True) 
+    #port = int(os.environ.get('PORT', 33133))
+    #app.run(port=port, debug=True) 
+    app.run(debug=True)
