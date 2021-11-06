@@ -1,11 +1,13 @@
 # Dependencies
-from flask import Flask, render_template, json, url_for, request, session, redirect, flash
+from flask import Flask, render_template, json, url_for, request, session, redirect, flash, jsonify
 import os
 import database.db_connector as db
 from markupsafe import escape
 import geopy as gp
 import json
 import datetime
+import googlemaps
+
 
 # Configuration
 app = Flask(__name__)
@@ -107,8 +109,26 @@ def reviews():
     """Render reviews.html"""
     return render_template("reviews.html")
 
+@app.route('/reviews.html/<place_id>', methods=['GET'])
+def service(place_id):
+    gmaps = googlemaps.Client(key='AIzaSyDj7clChH8kmGTe5uga8JUz21Q0AAm_9iA')
+    
+    place = gmaps.place(place_id=place_id)  # Find placeID @: https://developers.google.com/places/place-id
+    reviews = []  # empty list to hold dictionaries of reviews
+
+    for i in range(len(place['result']['reviews'])):
+        text = place['result']['reviews'][i]['text']
+        rating = place['result']['reviews'][i]['rating']
+        
+        if rating >= 5:  # retrieve 5-star reviews only
+            reviews.append({'rating': rating,
+                            'text': text})
+        if len(reviews) == 2:  # number of reviews to display
+            break
+    return jsonify(reviews)
+
 # Listener
 if __name__ == "__main__":
-    app.run(host="flip3.engr.oregonstate.edu:", port=33133)
-    #port = int(os.environ.get('PORT', 33133))
-    #app.run(port=port, debug=True) # Use 'python app.py' or 'flask run' to run in terminal
+    #app.run(host="flip3.engr.oregonstate.edu", port=33233)
+    port = int(os.environ.get('PORT', 33233))
+    app.run(port=port, debug=True) # Use 'python app.py' or 'flask run' to run in terminal

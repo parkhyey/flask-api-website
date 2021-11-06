@@ -188,11 +188,9 @@ column-count: 2;
 #google-reviews {
     color: white;
 }
-
-
-
-#service-results {
-    color: white;
+.service-results {
+    color: red;
+    background-color: aqua;
 }
 #reviews-test a {
     color: white;

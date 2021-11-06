@@ -26,11 +26,26 @@
     <div><button id="wiki">Get wiki</button></div>
     <!--<input type='button' name='testing' value='testing' 
                     onclick="window.location='http://flip3.engr.oregonstate.edu:33133/ChIJW69I7FhZwokR61IbDPnsqTo'"-->
+    <div id="">
+      <div class="service-results" id="reviews-result"></div>
+    </div>
 
-    <div class="service-results" id="reviews-result"></div>
+<script type="text/javascript">
 
+  var myLink = document.getElementById('wiki');
+  
+  myLink.onclick = function(){
+  
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src = "../ajax-test.js"; 
+      document.getElementById("reviews-result").textContent = "test";
+      return false;
+  
+  }
+  
+  
   </script>
-    <script type="module" src="../static/httprequest-review.js"></script>
-    <script type="module" src="../static/httprequest-wiki.js" ></script>
+
   </body>
 </html>

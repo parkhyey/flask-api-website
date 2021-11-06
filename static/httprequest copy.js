@@ -11,10 +11,13 @@ function bindButtons() {
 
         // send request
         req.open('GET', myURL, true);
+        req.setRequestHeader('Access-Control-Allow-Headers', '*');
         req.setRequestHeader('Content-Type', 'application/json');
-        //req.send(null);
+        req.setRequestHeader('Access-Control-Allow-Origin', '*');
+
+        req.send(place_id);
         //req.send(JSON.stringify(place_id))
-        var response = JSON.parse(req.responseText);
+        var response = JSON.stringify(req.responseText);
         console.log(response)
         console.log('here')
         // display       

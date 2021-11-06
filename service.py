@@ -1,8 +1,13 @@
+# Google review scraper
+# Takes place_id and respond JSON data of reviews and ratings of the place
+
 from flask import Flask, jsonify
 import os
 import googlemaps
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/', methods=['GET'])
 def home():
@@ -20,16 +25,15 @@ def reviews(place_id):
         text = place['result']['reviews'][i]['text']
         rating = place['result']['reviews'][i]['rating']
         
-        if rating >= 5:  # retrieve 5-star reviews only
+        if rating >= 4:  # retrieve 5-star reviews only
             reviews.append({'rating': rating,
                             'text': text})
-        if len(reviews) == 2:  # number of reviews to display
+        if len(reviews) == 5:  # number of reviews to display
             break
     return jsonify(reviews)
 
 # Listener
 if __name__ == "__main__":
-    app.run(host="flip3.engr.oregonstate.edu", port=33133)
-    #port = int(os.environ.get('PORT', 33133))
-    #app.run(port=port, debug=True) 
-
+    #app.run(host="flip3.engr.oregonstate.edu", port=33133)
+    port = int(os.environ.get('PORT', 33033))
+    app.run(port=port, debug=True) 
