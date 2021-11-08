@@ -28,30 +28,28 @@ def index():
     return render_template("index.html")
 
 # Compatibility
-@app.route("/compatibility.html")
-def compatibility():
+@app.route("/compatibility/<sign>")
+def compatibility(sign):
     """Render compatibility.html"""
-    return render_template("compatibility.html")
+    return render_template("compatibility.html", sign=sign)
 
-# Horoscope
-@app.route("/horoscope.html")
-def horoscope():
+@app.route("/horoscope/<sign>")
+def horoscope(sign):
     """Render horoscope.html"""
-    return render_template("horoscope.html")
+    return render_template("horoscope.html", sign=sign)
 
 # Travel
-@app.route("/travel.html/<sign>", methods=['POST', 'GET'])
+@app.route("/travel/<sign>", methods=['POST', 'GET'])
 def travel(sign):
     """Render travel.html"""
     # select location based on <sign>
     where = {"Aquarius": "Zakynthos", "Aries": "Bondi Beach", "Cancer": "New Orleans", "Capricorn": "Amalfi Coast", "Gemini": "Lamma Island",
              "Leo": "Miami", "Libra": "Chefchaouen", "Pisces": "Raja Ampat", "Sagittarius": "Cumbemayo", "Scorpio": "Hawaiʻi Volcanoes National Park", "Taurus": "Costa Rica", "Virgo": "Singapore"}
-
+    # img = "<img src='../static/img/Zakinthos, Greece-unsplash.jpg/'>"
     response = requests.get(
         "http://flip1.engr.oregonstate.edu:4753/" + where[sign])
     todos = json.loads(response.text)
     wiki_result = todos["History"]
-    # return redirect(url_for('travel.html', wiki_result=wiki_result))
     return render_template("travel.html", wiki_result=wiki_result, where=where[sign], sign=sign)
 
 # All Star Signs
@@ -61,88 +59,74 @@ def Aquarius():
     return render_template("signs/Aquarius.html")
 
 
-@app.route("/signs/Aries.html")
+@app.route("/signs/Aries")
 def Aries():
     """Render Aries.html"""
     return render_template("signs/Aries.html")
 
 
-@app.route("/signs/Cancer.html")
+@app.route("/signs/Cancer")
 def Cancer():
     """Render Cancer.html"""
     return render_template("signs/Cancer.html")
 
 
-@app.route("/signs/Capricorn.html")
+@app.route("/signs/Capricorn")
 def Capricorn():
     """Render Capricorn.html"""
     return render_template("signs/Capricorn.html")
 
 
-@app.route("/signs/Gemini.html")
+@app.route("/signs/Gemini")
 def Gemini():
     """Render Gemini.html"""
     return render_template("signs/Gemini.html")
 
 
-@app.route("/signs/Leo.html")
+@app.route("/signs/Leo")
 def Leo():
     """Render Leo.html"""
     return render_template("signs/Leo.html")
 
 
-@app.route("/signs/Libra.html")
+@app.route("/signs/Libra")
 def Libra():
     """Render Libra.html"""
     return render_template("signs/Libra.html")
 
 
-@app.route("/signs/Pisces.html")
+@app.route("/signs/Pisces")
 def Pisces():
     """Render Pisces.html"""
     return render_template("signs/Pisces.html")
 
 
-@app.route("/signs/Sagittarius.html")
+@app.route("/signs/Sagittarius")
 def Sagittarius():
     """Render Sagittarius.html"""
     return render_template("signs/Sagittarius.html")
 
 
-@app.route("/signs/Scorpio.html")
+@app.route("/signs/Scorpio")
 def Scorpio():
     """Render Scorpio.html"""
     return render_template("signs/Scorpio.html")
 
 
-@app.route("/signs/Taurus.html")
+@app.route("/signs/Taurus")
 def Taurus():
     """Render Taurus.html"""
     return render_template("signs/Taurus.html")
 
 
-@app.route("/signs/Virgo.html")
+@app.route("/signs/Virgo")
 def Virgo():
     """Render Virgo.html"""
     return render_template("signs/Virgo.html")
 
 
-@app.route("/reviews.html")
-def reviews():
-    """Render reviews.html"""
-    return render_template("reviews.html")
-
-
-# @app.route('/this', methods=['POST', 'GET'])
-# def this():
-#     data = "Zakynthos"
-#     response = requests.get("http://flip1.engr.oregonstate.edu:4753/"+data)
-#     todos = json.loads(response.text)
-#     return str(todos)
-
-
 # Listener
 if __name__ == "__main__":
-    port = int(os.environ.get('PORT', 33233))
-    # Use 'python app.py' or 'flask run' to run in terminal
+    port = int(os.environ.get('PORT', 33233))    
     app.run(port=port, debug=True)
+    # Use 'python app.py' or 'flask run' to run in terminal
