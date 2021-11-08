@@ -37,10 +37,15 @@ def horoscope():
     return render_template("horoscope.html")
 
 # Travel
-@app.route("/travel.html")
+@app.route("/travel.html", methods = ['POST', 'GET'])
 def travel():
     """Render travel.html"""
-    return render_template("travel.html")
+    data = "Zakynthos"
+    response = requests.get("http://flip1.engr.oregonstate.edu:4753/"+data)
+    todos = json.loads(response.text)
+    wiki_result = todos["History"]
+    #return redirect(url_for('travel.html', wiki_result=wiki_result))
+    return render_template("travel.html", wiki_result=wiki_result)
 
 # All Star Signs
 @app.route("/signs/Aquarius.html")
@@ -109,21 +114,15 @@ def reviews():
     return render_template("reviews.html")
 
 @app.route('/this',methods = ['POST', 'GET'])
-def result():
-   data = "Zakynthos"
-   response = requests.get("http://flip1.engr.oregonstate.edu:4753/"+data)
-   todos = json.loads(response.text)
-   return str(todos)
+def this():
+    data = "Zakynthos"
+    response = requests.get("http://flip1.engr.oregonstate.edu:4753/"+data)
+    todos = json.loads(response.text)
+    return str(todos)
 
 @app.route("/testing.html")
 def testing():
     return render_template("testing.html")
-
-@app.route("/testing2.html", methods = ['POST', 'GET'])
-def testing2():
-    user = request.args.get('nm')
-    return redirect(url_for('success',name = user))
-    #return render_template("testing2.html")
 
 # Listener
 if __name__ == "__main__":

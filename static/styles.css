@@ -150,8 +150,12 @@ column-count: 2;
 #travel-text p {
     margin: auto;
     width: 800px;
-    padding: 1em 0em;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 1em 0em 1em 0em;
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    color: white;
+    height: 200px;
+    overflow-y: scroll;
+    line-height: 1.7em;
 }
 #birthday-result {
     font-weight: bold;
@@ -184,15 +188,4 @@ column-count: 2;
 }
 #compatibility-contents {
     text-align: center;
-}
-#google-reviews {
-    color: white;
-}
-.service-results {
-    color: red;
-    background-color: aqua;
-}
-#reviews-test a {
-    color: white;
-    text-decoration: none;
 }
