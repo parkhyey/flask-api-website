@@ -99,12 +99,12 @@ hr {
     padding: 3em 10em;
     column-count: 3;
 }
-#select-list {
+.select-list {
     text-align: center;
     color: white;
     padding: 1em;
 }
-#select-list:hover {
+.select-list:hover {
     background-color:rgb(255,255,255,0.1);
 }
 .subpages {
