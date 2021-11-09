@@ -195,10 +195,13 @@ hr {
   color: white;
 }
 #bir {
-  color: lightblue;
   font-size: 1.3em;
   text-decoration: underline;
   text-underline-offset: 0.2em;
+  color: white;
+}
+#bir a {  
+  text-decoration: none;
 }
 #compatibility-contents {
   text-align: center;

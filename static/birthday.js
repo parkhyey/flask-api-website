@@ -6,6 +6,6 @@ function birthdayfunc() {
     } else {
         // document.getElementById("birthday-result").textContent = 'You are ' + bir;
         document.getElementById("birthday-result").innerHTML =
-    'You are ' + '<a href="signs/'+ bir +'.html"><span id="bir">' + bir + '</span></a>';
+    'You are ' + '<a href="signs/'+ bir +'" id="bir" >' + bir + '</a>';
     }
 };
