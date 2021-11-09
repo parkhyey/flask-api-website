@@ -1,3 +1,3 @@
 document.getElementById("header").innerHTML =
-    '<a href="../templates/index.html"><h2>Astrology Zone</h2></a>'
+    '<a href="/index"><h2>Astrology Zone</h2></a>'
     ;
