@@ -15,17 +15,16 @@
       <div class="subtitles">Daily Horoscope</div>
       <div id="your-sign">[ {{ sign }} ]</div>
       <p id="horoscope-contents">
-        You are a creative person, and it will help you move ahead in life. You
-        will get ample opportunities to prove your mettle in the creative field
-        and your work will not only be rewarding but also very satisfying. You
-        will be brimming with ideas and will deal with obstacles head on- like
-        your sun sign! However, you will need to keep your passive aggressive
-        nature on the side-lines, or it is likely to spoil your relationships
-        with your near and dear ones. Life is unpredictable so do not whine
-        about the hurdles which come across your path. Stride across the path of
-        life with vigour and enthusiasm. Travel does not shine much on your
-        cards. It is better that you stay indoors and watch movies.
+        <br>
+        Today is : {{ horoscope.current_date }}<br>
+        Compatibility : {{ horoscope.compatibility }}<br>
+        Mood : {{ horoscope.mood }}<br>
+        Color : {{ horoscope.color }}<br>
+        Lucky Number : {{ horoscope.lucky_number }}<br>
+        Lucky Time : {{ horoscope.lucky_time }}<br>     
+        <span>{{ horoscope.description }}</span>       
       </p>
+
     </div>
   </body>
 </html>

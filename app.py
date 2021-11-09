@@ -29,13 +29,36 @@ def index():
 @app.route("/compatibility/<sign>")
 def compatibility(sign):
     """Render compatibility.html"""
-    return render_template("compatibility.html", sign=sign)
+    img = {
+            "Aquarius": "https://numerologysign.com/wp-content/uploads/2020/09/Aquarius-Compatibility-Chart-Zodiac-Sign-Percentages-768x819.png.webp",
+            "Aries": "https://numerologysign.com/wp-content/uploads/2020/09/Aries-Compatibility-Chart-Zodiac-Sign-Percentages-768x819.png.webp",
+            "Cancer": "https://numerologysign.com/wp-content/uploads/2020/09/Cancer-Compatibility-Chart-Zodiac-Sign-Percentages-768x819.png.webp",
+            "Capricorn": "https://numerologysign.com/wp-content/uploads/2020/09/Capricorn-Compatibility-Chart-and-Zodiac-Sign-Percentages-768x819.png.webp",
+            "Gemini": "https://numerologysign.com/wp-content/uploads/2020/09/Gemini-Compatibility-Chart-and-Zodiac-Sign-Percentages-768x819.png.webp",
+            "Leo": "https://numerologysign.com/wp-content/uploads/2020/09/Leo-Compatibility-Chart-and-Zodiac-Sign-Percentages-768x819.png.webp", 
+            "Libra": "https://numerologysign.com/wp-content/uploads/2020/09/Libra-Compatibility-Chart-Zodiac-Sign-Percentages-768x819.png.webp", 
+            "Pisces": "https://numerologysign.com/wp-content/uploads/2020/09/Pisces-Compatibility-Chart-Zodiac-Sign-Percentages-768x819.png.webp", 
+            "Sagittarius": "https://numerologysign.com/wp-content/uploads/2020/09/Sagittarius-Compatibility-Chart-and-Zodiac-Sign-Percentages-768x819.png.webp", 
+            "Scorpio": "https://numerologysign.com/wp-content/uploads/2020/09/Scorpio-Compatibility-Chart-and-Zodiac-Sign-Percentages-768x819.png.webp",
+            "Taurus": "https://numerologysign.com/wp-content/uploads/2020/09/Taurus-Compatibility-Chart-and-Zodiac-Sign-Percentages-768x819.png.webp",
+            "Virgo": "https://numerologysign.com/wp-content/uploads/2020/09/Virgo-Compatibility-Chart-and-Zodiac-Sign-Percentages-768x819.png.webp"
+            }
+    return render_template("compatibility.html", sign=sign, img=img[sign])
 
-
-@app.route("/horoscope/<sign>")
+# Horoscope
+@app.route("/horoscope/<sign>", methods=['POST', 'GET'])
 def horoscope(sign):
-    """Render horoscope.html"""
-    return render_template("horoscope.html", sign=sign)
+    """Gets daily horoscope from Aztro API"""
+    url = "https://sameer-kumar-aztro-v1.p.rapidapi.com/"
+    querystring = {"sign":sign, "day":"yesterday"}
+    headers = {
+        'x-rapidapi-host': "sameer-kumar-aztro-v1.p.rapidapi.com",
+        'x-rapidapi-key': "c232a67fd7msh5d9690a65c5ee5ep19f6a0jsn958fd5326d04"
+        }
+    response = requests.request("POST", url, headers=headers, params=querystring)
+    horoscope = json.loads(response.text)
+    print(horoscope)
+    return render_template("horoscope.html", sign=sign, horoscope=horoscope)
 
 # Travel
 @app.route("/travel/<sign>", methods=['POST', 'GET'])

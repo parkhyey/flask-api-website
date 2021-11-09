@@ -42,12 +42,15 @@ h3 {
 }
 #star-container1 {
   column-count: 4;
+  margin: 0.5em;
 }
 #star-container2 {
   column-count: 4;
+  margin: 0.5em;
 }
 #star-container3 {
   column-count: 4;
+  margin: 0.5em;
 }
 .signs {
   text-decoration: none;
@@ -96,7 +99,7 @@ hr {
 .select-class {
   font-weight: bold;
   font-size: 1.5em;
-  padding: 3em 10em;
+  padding: 3em 1em;
   column-count: 3;
 }
 .select-class a {
@@ -105,10 +108,10 @@ hr {
 .select-list {
   text-align: center;
   color: white;
-  padding: 1em;
 }
 .select-list:hover {
-  background-color: rgb(255, 255, 255, 0.1);
+  color: lightblue;
+  /* background-color: rgb(255, 255, 255, 0.1); */
 }
 .subpages {
   color: white;
@@ -125,6 +128,15 @@ hr {
   margin: auto;
   width: 50%;
   line-height: 2em;
+  font-size: 1.3em;
+  line-height: 1.7em;
+}
+#horoscope-contents span {
+  display: block;
+  padding: 2em;
+  font-size: 0.9em;
+  font-style: italic;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 #back {
   position: absolute;
@@ -153,8 +165,7 @@ hr {
 #travel-text p {
   margin: auto;
   width: 800px;
-  padding: 1em 0em 1em 0em;
-  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+  padding: 1em 0em 1em 0em;  
   color: white;
   height: 200px;
   overflow-y: scroll;
@@ -191,4 +202,10 @@ hr {
 }
 #compatibility-contents {
   text-align: center;
+}
+.reference {
+  font-size: 0.8em;
+  font-style: italic;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color:rgb(255, 255, 255, 0.8);
 }
