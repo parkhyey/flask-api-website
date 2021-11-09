@@ -1,16 +1,3 @@
-document.addEventListener('DOMContentLoaded', bindButtons);
-function bindButtons() {
-
-    // when the star sign link is clicked
-    document.getElementById('Aries').addEventListener('click', function (event) {
-        event.preventDefault();
-    
-        const starsign = 'Aries'; 
-        console.log(starsign)             
-        document.getElementById("your-sign").textContent = 'You are ' + starsign;
-
-    })}
-
 function birthdayfunc() {
     var select = document.getElementById("birthday");
     var bir = select.value;
