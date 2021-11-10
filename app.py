@@ -80,20 +80,20 @@ def horoscope(sign):
 @app.route("/travel/<sign>", methods=['POST', 'GET'])
 def travel(sign):
     """Scrapes and returns wiki page history section for the places assigned for each sign"""
-    # locations for each sign
+    # locations for each sign, find place_id at https://developers.google.com/places/place-id
     where = {
-            "Aquarius": { "location": "Zakynthos", "place_id": "ChIJW69I7FhZwokR61IbDPnsqTo" },
-            "Aries": { "location": "Bondi Beach", "place_id": "ChIJW69I7FhZwokR61IbDPnsqTo" },
-            "Cancer": { "location": "New Orleans", "place_id": "ChIJW69I7FhZwokR61IbDPnsqTo" },
-            "Capricorn": { "location": "Amalfi Coast", "place_id": "ChIJW69I7FhZwokR61IbDPnsqTo" },
-            "Gemini": { "location": "Lamma Island", "place_id": "ChIJW69I7FhZwokR61IbDPnsqTo" },
-            "Leo": { "location": "Miami", "place_id": "ChIJW69I7FhZwokR61IbDPnsqTo" }, 
-            "Libra": { "location": "Chefchaouen", "place_id": "ChIJW69I7FhZwokR61IbDPnsqTo" },
-            "Pisces": { "location": "ZakRaja Ampatynthos", "place_id": "ChIJW69I7FhZwokR61IbDPnsqTo" }, 
-            "Sagittarius": { "location": "Himalaya", "place_id": "ChIJW69I7FhZwokR61IbDPnsqTo" },
-            "Scorpio": { "location": "Hawaiʻi Volcanoes National Park", "place_id": "ChIJW69I7FhZwokR61IbDPnsqTo" },
-            "Taurus": { "location": "Costa Rica", "place_id": "ChIJW69I7FhZwokR61IbDPnsqTo" },
-            "Virgo": { "location": "Singapore", "place_id": "ChIJW69I7FhZwokR61IbDPnsqTo" }
+            "Aquarius": { "location": "Zakynthos", "place_id": "ChIJ55m84V4YmxQRs4j35kP42gU" },
+            "Aries": { "location": "Bondi Beach", "place_id": "ChIJn5qtqpytEmsRn2juKNy2hjQ" },
+            "Cancer": { "location": "New Orleans", "place_id": "ChIJaS5FoBGmIIYRj77fFz8J_94" },
+            "Capricorn": { "location": "Amalfi Coast", "place_id": "ChIJoXFMw62VOxMR3ExPyRTP6Ew" },
+            "Gemini": { "location": "Lamma Island", "place_id": "ChIJNYBP5yVVATQREm7zX3gXth4" },
+            "Leo": { "location": "Miami", "place_id": "ChIJrz_-m5q02YgR3MjgN6ttEfc" }, 
+            "Libra": { "location": "Chefchaouen", "place_id": "ChIJO5BjVs0nCw0Rn_4Koj0Ssw0" },
+            "Pisces": { "location": "Prague", "place_id": "ChIJw7ckbB6VC0cRnyUSr4g8zyo" },
+            "Sagittarius": { "location": "Himalaya", "place_id": "ChIJ81rmpPAJAzkRfxoOTK00Jmk" },
+            "Scorpio": { "location": "Hawaiʻi Volcanoes National Park", "place_id": "ChIJscm5wLZhUXkRJq6EPCZ7Wz4" },
+            "Taurus": { "location": "Costa Rica", "place_id": "ChIJS_Wpm5xxoY8Rhkpczjlh5pU" }, 
+            "Virgo": { "location": "Singapore", "place_id": "ChIJ6SvldwoR2jERHyZaM5NvIm4" }
             }
 
     # Wiki service
@@ -118,7 +118,7 @@ def travel(sign):
             "Gemini": "https://images.unsplash.com/photo-1597240890437-6d9c2d4c16aa?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80",
             "Leo": "https://images.unsplash.com/photo-1530071291164-537d481750f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80", 
             "Libra": "https://images.unsplash.com/photo-1593350054764-2ea4054328ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=735&q=80", 
-            "Pisces": "https://images.unsplash.com/photo-1601844075967-c1376c021732?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80", 
+            "Pisces": "https://images.unsplash.com/photo-1600623471616-8c1966c91ff6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80", 
             "Sagittarius": "https://images.unsplash.com/photo-1623127557678-7546ee28656f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80", 
             "Scorpio": "https://images.unsplash.com/photo-1517508138376-d2ca9d34a908?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1173&q=80",
             "Taurus": "https://images.unsplash.com/photo-1620658927695-c33df6fb8130?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=735&q=80",
