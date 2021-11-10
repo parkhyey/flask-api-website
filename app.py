@@ -57,8 +57,21 @@ def horoscope(sign):
         }
     response = requests.request("POST", url, headers=headers, params=querystring)
     horoscope = json.loads(response.text)
-    print(horoscope)
-    return render_template("horoscope.html", sign=sign, horoscope=horoscope)
+    img = {
+            "Aquarius": "../static/img/aquarius.jpg",
+            "Aries": "../static/img/aries.jpg",
+            "Cancer": "../static/img/cancer.jpg",
+            "Capricorn": "../static/img/capricorn.jpg",
+            "Gemini": "../static/img/gemini.jpg",
+            "Leo": "../static/img/leo.jpg", 
+            "Libra": "../static/img/libra.jpg", 
+            "Pisces": "../static/img/pisces.jpg", 
+            "Sagittarius": "../static/img/sagittarius.jpg", 
+            "Scorpio": "../static/img/scorpio.jpg",
+            "Taurus": "../static/img/taurus.jpg",
+            "Virgo": "../static/img/virgo.jpg"
+            }
+    return render_template("horoscope.html", sign=sign, horoscope=horoscope, img=img[sign])
 
 # Travel
 @app.route("/travel/<sign>", methods=['POST', 'GET'])
@@ -177,6 +190,7 @@ def Virgo():
 
 # Listener
 if __name__ == "__main__":
-    port = int(os.environ.get('PORT', 33233))
-    app.run(port=port, debug=True)
+    app.run(host="localhost", port=7777)
+    # port = int(os.environ.get('PORT', 33233))
+    # app.run(port=port, debug=True)
     # Use 'python app.py' or 'flask run' to run in terminal

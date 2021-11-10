@@ -115,6 +115,7 @@ hr {
 }
 .subpages {
   color: white;
+  text-align: center;
 }
 .subtitles {
   text-align: center;
@@ -137,6 +138,11 @@ hr {
   font-size: 0.9em;
   font-style: italic;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+#img-container {
+  text-align:center;
+  margin: auto;
+  width: 100%;
 }
 #back {
   position: absolute;
@@ -202,6 +208,9 @@ hr {
 }
 #bir a {  
   text-decoration: none;
+}
+#bir:hover {  
+  color: lightblue;
 }
 #compatibility-contents {
   text-align: center;
