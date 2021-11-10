@@ -177,6 +177,18 @@ hr {
   overflow-y: scroll;
   line-height: 1.7em;
 }
+#maps {
+  text-align: left;
+}
+#rating {
+  text-align: left;
+  color: white;
+  width: 800px;
+  margin: auto;
+}
+#stars {
+  padding: 0 5px 0 0;
+}
 #birthday-result {
   font-weight: bold;
 }

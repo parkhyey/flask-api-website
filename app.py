@@ -25,6 +25,7 @@ def index():
     """Render index.html as home page"""
     return render_template("index.html")
 
+
 # Compatibility
 @app.route("/compatibility/<sign>")
 def compatibility(sign):
@@ -44,6 +45,7 @@ def compatibility(sign):
             "Virgo": "https://numerologysign.com/wp-content/uploads/2020/09/Virgo-Compatibility-Chart-and-Zodiac-Sign-Percentages-768x819.png.webp"
             }
     return render_template("compatibility.html", sign=sign, img=img[sign])
+
 
 # Horoscope
 @app.route("/horoscope/<sign>", methods=['POST', 'GET'])
@@ -73,29 +75,40 @@ def horoscope(sign):
             }
     return render_template("horoscope.html", sign=sign, horoscope=horoscope, img=img[sign])
 
+
 # Travel
 @app.route("/travel/<sign>", methods=['POST', 'GET'])
 def travel(sign):
     """Scrapes and returns wiki page history section for the places assigned for each sign"""
     # locations for each sign
     where = {
-            "Aquarius": "Zakynthos",
-            "Aries": "Bondi Beach",
-            "Cancer": "New Orleans",
-            "Capricorn": "Amalfi Coast",
-            "Gemini": "Lamma Island",
-            "Leo": "Miami", 
-            "Libra": "Chefchaouen", 
-            "Pisces": "Raja Ampat", 
-            "Sagittarius": "Himalaya", 
-            "Scorpio": "Hawaiʻi Volcanoes National Park",
-            "Taurus": "Costa Rica",
-            "Virgo": "Singapore"
+            "Aquarius": { "location": "Zakynthos", "place_id": "ChIJW69I7FhZwokR61IbDPnsqTo" },
+            "Aries": { "location": "Bondi Beach", "place_id": "ChIJW69I7FhZwokR61IbDPnsqTo" },
+            "Cancer": { "location": "New Orleans", "place_id": "ChIJW69I7FhZwokR61IbDPnsqTo" },
+            "Capricorn": { "location": "Amalfi Coast", "place_id": "ChIJW69I7FhZwokR61IbDPnsqTo" },
+            "Gemini": { "location": "Lamma Island", "place_id": "ChIJW69I7FhZwokR61IbDPnsqTo" },
+            "Leo": { "location": "Miami", "place_id": "ChIJW69I7FhZwokR61IbDPnsqTo" }, 
+            "Libra": { "location": "Chefchaouen", "place_id": "ChIJW69I7FhZwokR61IbDPnsqTo" },
+            "Pisces": { "location": "ZakRaja Ampatynthos", "place_id": "ChIJW69I7FhZwokR61IbDPnsqTo" }, 
+            "Sagittarius": { "location": "Himalaya", "place_id": "ChIJW69I7FhZwokR61IbDPnsqTo" },
+            "Scorpio": { "location": "Hawaiʻi Volcanoes National Park", "place_id": "ChIJW69I7FhZwokR61IbDPnsqTo" },
+            "Taurus": { "location": "Costa Rica", "place_id": "ChIJW69I7FhZwokR61IbDPnsqTo" },
+            "Virgo": { "location": "Singapore", "place_id": "ChIJW69I7FhZwokR61IbDPnsqTo" }
             }
-    response = requests.get("http://flip1.engr.oregonstate.edu:4753/" + where[sign])
-    todos = json.loads(response.text)
-    wiki_result = todos["History"]
 
+    # Wiki service
+    response = requests.get("http://flip1.engr.oregonstate.edu:4753/" + where[sign]['location'])
+    response_json = json.loads(response.text)
+    wiki_result = response_json["History"]
+
+    # Google rating service
+    response_rating = requests.get("http://flip3.engr.oregonstate.edu:33133/" + where[sign]['place_id'])
+    response_json2 = json.loads(response_rating.text)
+    print(response_json2)
+    rating_result = []
+    # rating_result = [response_json2[0]["text"],response_json2[1]["text"]]
+    for i in range(len(response_json2)):
+        rating_result.append(response_json2[i]["text"])
     # pull imgs online for each sign
     img = {
             "Aquarius": "https://images.unsplash.com/photo-1570015329194-675ae0cf2516?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
@@ -112,7 +125,7 @@ def travel(sign):
             "Virgo": "https://images.unsplash.com/photo-1516496636080-14fb876e029d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=688&q=80"
             }
 
-    return render_template("travel.html", wiki_result=wiki_result, where=where[sign], sign=sign, img=img[sign])
+    return render_template("travel.html", wiki_result=wiki_result, where=where[sign]['location'], sign=sign, img=img[sign], rating=rating_result)
 
 
 # All Star Signs

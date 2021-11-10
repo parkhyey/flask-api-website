@@ -29,10 +29,10 @@ def reviews(place_id):
         rating = place['result']['reviews'][i]['rating']
         
         # customize response
-        if rating == 5:  # retrieve 5-star reviews only
+        if rating >= 4:  # set number of star ratings
             reviews.append({'rating': rating,
                             'text': text})
-        if len(reviews) == 2:  # number of reviews to display
+        if len(reviews) == 10:  # number of reviews to retrieve
             break
     return jsonify(reviews)
 
