@@ -13,17 +13,16 @@
         "axios": "^0.24.0",
         "body-parser": "^1.13.3",
         "cors": "^2.8.5",
-        "express": "^4.13.2",
+        "express": "^4.17.1",
         "express-handlebars": "^2.0.1",
         "express-session": "^1.11.3",
         "form-data": "^4.0.0",
+        "JSON": "^1.0.0",
         "mysql": "^2.8.0",
         "node": "^17.0.1",
         "node-require": "^0.0.10",
         "request": "^2.88.2",
         "require": "^2.4.20",
-        "requirejs": "^2.3.6",
-        "JSON": "^1.0.0"
+        "requirejs": "^2.3.6"
     }
-  }
-  
+}

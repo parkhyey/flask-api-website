@@ -106,9 +106,10 @@ def travel(sign):
     response_json2 = json.loads(response_rating.text)
     print(response_json2)
     rating_result = []
-    # rating_result = [response_json2[0]["text"],response_json2[1]["text"]]
+
     for i in range(len(response_json2)):
         rating_result.append(response_json2[i]["text"])
+        
     # pull imgs online for each sign
     img = {
             "Aquarius": "https://images.unsplash.com/photo-1570015329194-675ae0cf2516?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",

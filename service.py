@@ -34,10 +34,14 @@ def reviews(place_id):
                             'text': text})
         if len(reviews) == 10:  # number of reviews to retrieve
             break
-    return jsonify(reviews)
+    response = jsonify(reviews)
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
 # Listener
 if __name__ == "__main__":
-    # app.run(host="flip3.engr.oregonstate.edu", port=33133)
-    app.run(host="localhost", port=8888)
+    app.run(host="flip3.engr.oregonstate.edu", port=33233)
+    # app.run(host="localhost", port=8888)
+    # port = int(os.environ.get('PORT', 33233))
+    # app.run(port=port, debug=True)
     
