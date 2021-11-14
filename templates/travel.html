@@ -6,19 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Astrology Zone</title>
     <link rel="stylesheet" href="../static/styles.css" />
-    <!-- <link rel="stylesheet" href="https://cdn.rawgit.com/stevenmonson/googleReviews/master/google-places.css" /> -->
   </head>
   <body>
+    <!-- back button -->
     <div>
       <input type="button" id="back" value="Back" onclick="history.back()" />
     </div>
+
     <div class="subpages">
       <div class="subtitles">Destiny Travel for {{ sign }}</div>
+
       <div id="travel-text">
         <div id="your-sign">[ {{ where }} ]</div>
         <p id="wiki-result">{{ wiki_result }}</p>
-      </div>
-      <br />
+      </div><br />
+
       <div id="travel">
         <div id="picture">
           <img src="{{ img }}" width="500" height="350" />
@@ -27,12 +29,11 @@
           <img src="{{ maps }}" width="500" height="350" />
         </div>
       </div>
+
       <div id="rating">
         <span id="stars1"></span><br>{{ rating[0] }}<br>
         <span id="stars2"></span><br>{{ rating[1] }}
       </div>
-      <!-- <button onclick="initMap();">map testing</button>
-        <div id="map"></div> -->
     </div>
     <script src="../static/stars.js"></script>
   </body>

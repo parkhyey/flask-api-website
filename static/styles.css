@@ -140,7 +140,7 @@ hr {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 #img-container {
-  text-align:center;
+  text-align: center;
   margin: auto;
   width: 100%;
 }
@@ -171,7 +171,7 @@ hr {
 #travel-text p {
   margin: auto;
   width: 800px;
-  padding: 1em 0em 1em 0em;  
+  padding: 1em 0em 1em 0em;
   color: white;
   height: 200px;
   overflow-y: scroll;
@@ -218,10 +218,10 @@ hr {
   text-underline-offset: 0.2em;
   color: white;
 }
-#bir a {  
+#bir a {
   text-decoration: none;
 }
-#bir:hover {  
+#bir:hover {
   color: lightblue;
 }
 #compatibility-contents {
@@ -230,6 +230,6 @@ hr {
 .reference {
   font-size: 0.8em;
   font-style: italic;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color:rgb(255, 255, 255, 0.8);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: rgb(255, 255, 255, 0.8);
 }

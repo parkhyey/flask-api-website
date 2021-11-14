@@ -102,7 +102,7 @@ def travel(sign):
     wiki_result = response_json["History"]
 
     # Google rating service
-    response_rating = requests.get("http://flip3.engr.oregonstate.edu:33133/" + where[sign]['place_id'])
+    response_rating = requests.get("http://flip3.engr.oregonstate.edu:33233/" + where[sign]['place_id'])
     response_json2 = json.loads(response_rating.text)
     print(response_json2)
     rating_result = []
@@ -204,7 +204,4 @@ def Virgo():
 
 # Listener
 if __name__ == "__main__":
-    app.run(host="localhost", port=7777)
-    # port = int(os.environ.get('PORT', 33233))
-    # app.run(port=port, debug=True)
-    # Use 'python app.py' or 'flask run' to run in terminal
+    app.run(debug=True)

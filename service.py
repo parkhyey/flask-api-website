@@ -1,10 +1,11 @@
+# Google review scraper
+# Takes place_id and respond JSON data of reviews and ratings of the place
+# Request format = url/ + place_id
+
 from flask import Flask, jsonify
 import googlemaps
 from flask_cors import CORS
 
-# Google review scraper
-# Takes place_id and respond JSON data of reviews and ratings of the place
-# Request format = url/ + place_id
 
 app = Flask(__name__)
 CORS(app)
@@ -41,7 +42,3 @@ def reviews(place_id):
 # Listener
 if __name__ == "__main__":
     app.run(host="flip3.engr.oregonstate.edu", port=33233)
-    # app.run(host="localhost", port=8888)
-    # port = int(os.environ.get('PORT', 33233))
-    # app.run(port=port, debug=True)
-    
