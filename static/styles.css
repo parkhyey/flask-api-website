@@ -81,13 +81,22 @@ hr {
   margin: 2em 0em;
 }
 .general-info {
+  margin: auto;
+  width: 800px;
+  height: 200px;
+  line-height: 1.7em;
   color: white;
-  text-align: center;
+  text-align: left;
   font-size: 1.1em;
-  padding: 1em;
-  line-height: 1.5em;
   font-style: italic;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 1em 0em 1em 0em;
+}
+.general-info h3 {
+  font-style: normal;
+  text-align: center;
+  font-family: Century Gothic Light;
+  padding-top: 1em;
 }
 #your-sign {
   color: white;
@@ -176,6 +185,7 @@ hr {
   height: 200px;
   overflow-y: scroll;
   line-height: 1.7em;
+  text-align: left;
 }
 #maps {
   text-align: left;
