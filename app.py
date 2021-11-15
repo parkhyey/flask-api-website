@@ -1,7 +1,6 @@
 # Dependencies
 from flask import Flask, render_template, json, url_for, request, redirect
 import os
-import database.db_connector as db
 from markupsafe import escape
 import json
 import requests
@@ -103,13 +102,13 @@ def travel(sign):
 
     # Google rating service
     response_rating = requests.get("http://flip3.engr.oregonstate.edu:33233/" + where[sign]['place_id'])
-    response_json2 = json.loads(response_rating.text)
-    print(response_json2)
+    response_json_rating = json.loads(response_rating.text)
+    print(response_json_rating)
     rating_result = []
 
-    for i in range(len(response_json2)):
-        rating_result.append(response_json2[i]["text"])
-        
+    for i in range(len(response_json_rating)):
+        rating_result.append((response_json_rating[i]["rating"], response_json_rating[i]["text"]))
+
     # pull imgs online for each sign
     img = {
             "Aquarius": "https://images.unsplash.com/photo-1570015329194-675ae0cf2516?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
