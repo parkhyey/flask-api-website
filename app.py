@@ -29,9 +29,23 @@ def index():
 def signs(signs):
     # retrieve Wiki "Main" info from Wiki microservice
     response = requests.get("http://flip1.engr.oregonstate.edu:4753/" + signs + " (astrology)")
-    wiki = json.loads(response.text)
-    print(wiki)
-    return render_template("signs.html", wiki=wiki, signs=signs)
+    wiki = json.loads(response.text)    
+    # display symbols
+    symbol = {
+            "Aquarius": "♒︎",
+            "Aries": "♈︎",
+            "Cancer": "♋︎",
+            "Capricorn": "♑︎",
+            "Gemini": "♊︎",
+            "Leo": "♌︎", 
+            "Libra": "♎︎", 
+            "Pisces": "♓︎", 
+            "Sagittarius": "♐︎", 
+            "Scorpio": "♏︎",
+            "Taurus": "♉︎",
+            "Virgo": "♍︎"
+            }
+    return render_template("signs.html", wiki=wiki, signs=signs, symbol=symbol[signs])
 
 
 # Compatibility

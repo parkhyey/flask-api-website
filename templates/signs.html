@@ -12,17 +12,26 @@
         <input type="button" id="back" value="Back" onclick="history.back()" />
     </div>
     <div id="header"></div>
-    <div id="your-sign">[ {{ signs }} ]</div>
+    <div id="sign-no-padding">[ {{ signs }} ]</div>
     <div class="general-info">
-        {{ wiki["Main"] }}
+        <h3>{{ symbol }}</h3>
+        <p>{{ wiki["Main"] }}</p>
+        <!-- <img src="../static/img/zodiac.jpg" width="300"/> -->
+
     </div>
 
     <!-- service selections -->
     <hr><div id="select">Select your service below</div>
     <div class="select-class">
-        <a href="../horoscope/{{ signs }}"><div class="select-list">Daily Horoscope</div>
-        <a href="../compatibility/{{ signs }}"><div class="select-list">Astrological Compatibility</div>
-        <a href="../travel/{{ signs }}"><div class="select-list" id="Aries">Destiny Travel</div>
+        <a href="../horoscope/{{ signs }}"><div class="select-list">Daily Horoscope
+            <!-- <div id="service-image"><img src="../static/img/horoscope.jpg" width="180" height="100"/></div> -->
+        </div>
+        <a href="../compatibility/{{ signs }}"><div class="select-list">Compatibility
+            <!-- <div id="service-image"><img src="../static/img/compatibility.jpg" width="180" height="100"/></div> -->
+        </div>
+        <a href="../travel/{{ signs }}"><div class="select-list" id="Aries">Destiny Travel
+            <!-- <div id="service-image"><img src="../static/img/travel.jpg" width="180" height="100"/></div> -->
+        </div>
     </div>
     <script src="../static/header.js"></script>
 </body>

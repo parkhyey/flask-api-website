@@ -83,26 +83,34 @@ hr {
 .general-info {
   margin: auto;
   width: 800px;
-  height: 200px;
+  height: 300px;
   line-height: 1.7em;
   color: white;
-  text-align: left;
+  text-align: center;
   font-size: 1.1em;
   font-style: italic;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  padding: 1em 0em 1em 0em;
 }
 .general-info h3 {
-  font-style: normal;
   text-align: center;
-  font-family: Century Gothic Light;
-  padding-top: 1em;
+  font-size: 3em;
+  font-style: normal;
+  font-weight: bold;
+  color: rgb(29, 26, 68);
+  /* color: rgba(255, 166, 0, 0.7); */
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
 }
 #your-sign {
   color: white;
   text-align: center;
   font-size: 1.5em;
   padding-bottom: 1em;
+  text-decoration: none;
+}
+#sign-no-padding {
+  color: white;
+  text-align: center;
+  font-size: 1.5em;
   text-decoration: none;
 }
 .select-class {
@@ -117,14 +125,18 @@ hr {
 .select-list {
   text-align: center;
   color: white;
+  padding: 1em;
 }
 .select-list:hover {
-  color: lightblue;
-  /* background-color: rgb(255, 255, 255, 0.1); */
+  background-color: rgb(255, 255, 255, 0.1);
+}
+#service-image {
+  padding-top: 0.5em;
 }
 .subpages {
   color: white;
   text-align: center;
+  padding-bottom: 2em;
 }
 .subtitles {
   text-align: center;
@@ -211,12 +223,14 @@ hr {
 }
 #birthday {
   padding: 0.5em;
+  font-size: 1em;
 }
 #showmysign {
   background-color: rgb(255, 255, 255, 0.2);
   color: white;
   padding: 0.5em;
   font-family: Century Gothic Light;
+  font-size: 1em;
 }
 #results {
   text-align: center;
