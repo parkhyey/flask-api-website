@@ -36,7 +36,7 @@ def reviews(place_id):
         if len(reviews) == 10:  # number of reviews to retrieve
             break
     response = jsonify(reviews)
-    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Origin', '*')  # fix CORS policy error
     return response
 
 # Listener
