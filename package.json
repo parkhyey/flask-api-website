@@ -17,7 +17,6 @@
         "express-handlebars": "^2.0.1",
         "express-session": "^1.11.3",
         "form-data": "^4.0.0",
-        "JSON": "^1.0.0",
         "mysql": "^2.8.0",
         "node": "^17.0.1",
         "node-require": "^0.0.10",
