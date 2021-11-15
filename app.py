@@ -1,7 +1,6 @@
 # Dependencies
 from flask import Flask, render_template, json, url_for, request, redirect
 import os
-from markupsafe import escape
 import json
 import requests
 import datetime
@@ -29,6 +28,7 @@ def index():
 @app.route("/compatibility/<sign>")
 def compatibility(sign):
     """Render compatibility.html"""
+    # pull online imgs for compatibility
     img = {
             "Aquarius": "https://numerologysign.com/wp-content/uploads/2020/09/Aquarius-Compatibility-Chart-Zodiac-Sign-Percentages-768x819.png.webp",
             "Aries": "https://numerologysign.com/wp-content/uploads/2020/09/Aries-Compatibility-Chart-Zodiac-Sign-Percentages-768x819.png.webp",
@@ -81,7 +81,7 @@ def travel(sign):
     """Scrapes and returns wiki page history section for the places assigned for each sign"""
     # locations for each sign, find place_id at https://developers.google.com/places/place-id
     where = {
-            "Aquarius": { "location": "Zakynthos", "place_id": "ChIJ55m84V4YmxQRs4j35kP42gU" },
+            "Aquarius": { "location": "Zakynthos", "place_id": "ChIJeWd9-9M7ZxMRN32bkyGz-GI" },
             "Aries": { "location": "Bondi Beach", "place_id": "ChIJn5qtqpytEmsRn2juKNy2hjQ" },
             "Cancer": { "location": "New Orleans", "place_id": "ChIJaS5FoBGmIIYRj77fFz8J_94" },
             "Capricorn": { "location": "Amalfi Coast", "place_id": "ChIJoXFMw62VOxMR3ExPyRTP6Ew" },
@@ -89,7 +89,7 @@ def travel(sign):
             "Leo": { "location": "Miami", "place_id": "ChIJrz_-m5q02YgR3MjgN6ttEfc" }, 
             "Libra": { "location": "Chefchaouen", "place_id": "ChIJO5BjVs0nCw0Rn_4Koj0Ssw0" },
             "Pisces": { "location": "Prague", "place_id": "ChIJw7ckbB6VC0cRnyUSr4g8zyo" },
-            "Sagittarius": { "location": "Himalaya", "place_id": "ChIJ81rmpPAJAzkRfxoOTK00Jmk" },
+            "Sagittarius": { "location": "Maldives", "place_id": "ChIJ57m5WKivEmsRVm0F9Unhr5s" },
             "Scorpio": { "location": "Hawaiʻi Volcanoes National Park", "place_id": "ChIJscm5wLZhUXkRJq6EPCZ7Wz4" },
             "Taurus": { "location": "Costa Rica", "place_id": "ChIJS_Wpm5xxoY8Rhkpczjlh5pU" }, 
             "Virgo": { "location": "Singapore", "place_id": "ChIJ6SvldwoR2jERHyZaM5NvIm4" }
@@ -98,7 +98,10 @@ def travel(sign):
     # Wiki service
     response = requests.get("http://flip1.engr.oregonstate.edu:4753/" + where[sign]['location'])
     response_json = json.loads(response.text)
-    wiki_result = response_json["History"]
+    if "History" in response_json:
+        wiki_result = response_json["History"]
+    else:
+        wiki_result = response_json["Main"]
 
     # Google rating service
     response_rating = requests.get("http://flip3.engr.oregonstate.edu:33233/" + where[sign]['place_id'])
@@ -109,7 +112,21 @@ def travel(sign):
     for i in range(len(response_json_rating)):
         rating_result.append((response_json_rating[i]["rating"], response_json_rating[i]["text"]))
 
-    # pull imgs online for each sign
+    # Add star images based on rating result
+    star_image = []
+    for i in range(len(rating_result)):
+        if rating_result[i][0] == 5:
+            star_image.append("⭐⭐⭐⭐⭐")
+        if rating_result[i][0] == 4:
+            star_image.append("⭐⭐⭐⭐")
+        if rating_result[i][0] == 3:
+            star_image.append("⭐⭐⭐")
+        if rating_result[i][0] == 2:
+            star_image.append("⭐⭐")
+        if rating_result[i][0] == 1:
+            star_image.append("⭐")            
+    
+    # pull online imgs for each sign
     img = {
             "Aquarius": "https://images.unsplash.com/photo-1570015329194-675ae0cf2516?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "Aries": "https://images.unsplash.com/photo-1557528263-efac13096ad1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=764&q=80",
@@ -119,13 +136,13 @@ def travel(sign):
             "Leo": "https://images.unsplash.com/photo-1530071291164-537d481750f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80", 
             "Libra": "https://images.unsplash.com/photo-1593350054764-2ea4054328ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=735&q=80", 
             "Pisces": "https://images.unsplash.com/photo-1600623471616-8c1966c91ff6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80", 
-            "Sagittarius": "https://images.unsplash.com/photo-1623127557678-7546ee28656f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80", 
+            "Sagittarius": "https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80", 
             "Scorpio": "https://images.unsplash.com/photo-1517508138376-d2ca9d34a908?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1173&q=80",
             "Taurus": "https://images.unsplash.com/photo-1620658927695-c33df6fb8130?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=735&q=80",
             "Virgo": "https://images.unsplash.com/photo-1516496636080-14fb876e029d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=688&q=80"
             }
 
-    return render_template("travel.html", wiki_result=wiki_result, where=where[sign]['location'], sign=sign, img=img[sign], rating=rating_result)
+    return render_template("travel.html", wiki_result=wiki_result, where=where[sign]['location'], sign=sign, img=img[sign], rating=rating_result, star_image=star_image)
 
 
 # All Star Signs
