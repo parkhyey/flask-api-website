@@ -23,6 +23,11 @@ h3 {
   text-align: center;
   text-decoration: none;
 }
+hr {
+  color: white;
+  margin: 2em 0em;
+}
+/* index.html */
 #star-signs {
   font-size: 1em;
   text-decoration: none;
@@ -66,6 +71,61 @@ h3 {
 .star-dates {
   font-size: 0.8em;
 }
+#birthday-result {
+  font-weight: bold;
+}
+#find-signs {
+  text-align: center;
+  padding-top: 1em;
+}
+#find-signs h3 {
+  padding-bottom: 0.5em;
+}
+#birthday {
+  padding: 0.5em;
+  font-size: 1em;
+}
+#showmysign {
+  background-color: rgb(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.5em;
+  font-family: Century Gothic Light;
+  font-size: 1em;
+}
+#results {
+  text-align: center;
+  color: white;
+}
+#bir {
+  font-size: 1.3em;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  color: white;
+}
+#bir a {
+  text-decoration: none;
+}
+#bir:hover {
+  color: lightblue;
+}
+/* signs.html */
+#back {
+  position: absolute;
+  padding: 1em;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: rgb(255, 255, 255, 0.2);
+  border: solid 1px rgb(255, 255, 255, 0.6);
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1em;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+#back:hover {
+  background-color: rgb(255, 255, 255, 0.3);
+}
 #select {
   font-weight: lighter;
   color: white;
@@ -75,10 +135,6 @@ h3 {
 }
 #select span {
   font-size: 1em;
-}
-hr {
-  color: white;
-  margin: 2em 0em;
 }
 .general-info {
   margin: auto;
@@ -130,9 +186,7 @@ hr {
 .select-list:hover {
   background-color: rgb(255, 255, 255, 0.1);
 }
-#service-image {
-  padding-top: 0.5em;
-}
+/* horoscope.html */
 .subpages {
   color: white;
   text-align: center;
@@ -165,23 +219,17 @@ hr {
   margin: auto;
   width: 100%;
 }
-#back {
-  position: absolute;
-  padding: 1em;
+.reference {
+  font-size: 0.8em;
+  font-style: italic;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: rgb(255, 255, 255, 0.2);
-  border: solid 1px rgb(255, 255, 255, 0.6);
-  color: white;
-  padding: 10px 25px;
+  color: rgb(255, 255, 255, 0.8);
+}
+/* compatibility.html */
+#compatibility-contents {
   text-align: center;
-  text-decoration: none;
-  font-size: 1em;
-  margin: 4px 2px;
-  cursor: pointer;
 }
-#back:hover {
-  background-color: rgb(255, 255, 255, 0.3);
-}
+/* travel.html */
 #travel {
   display: block;
 }
@@ -198,9 +246,6 @@ hr {
   line-height: 1.7em;
   text-align: left;
 }
-#maps {
-  text-align: left;
-}
 #rating {
   text-align: left;
   color: white;
@@ -209,50 +254,4 @@ hr {
 }
 #stars {
   padding: 0 5px 0 0;
-}
-#birthday-result {
-  font-weight: bold;
-}
-#find-signs {
-  text-align: center;
-  padding-top: 1em;
-}
-#find-signs h3 {
-  padding-bottom: 0.5em;
-}
-#birthday {
-  padding: 0.5em;
-  font-size: 1em;
-}
-#showmysign {
-  background-color: rgb(255, 255, 255, 0.2);
-  color: white;
-  padding: 0.5em;
-  font-family: Century Gothic Light;
-  font-size: 1em;
-}
-#results {
-  text-align: center;
-  color: white;
-}
-#bir {
-  font-size: 1.3em;
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
-  color: white;
-}
-#bir a {
-  text-decoration: none;
-}
-#bir:hover {
-  color: lightblue;
-}
-#compatibility-contents {
-  text-align: center;
-}
-.reference {
-  font-size: 0.8em;
-  font-style: italic;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: rgb(255, 255, 255, 0.8);
 }
