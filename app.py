@@ -135,19 +135,17 @@ def travel(sign):
         rating_result.append((response_json_rating[i]["rating"], response_json_rating[i]["text"]))
 
     # Add star images based on rating result
+    star_dict = {
+        5:"⭐⭐⭐⭐⭐",
+        4:"⭐⭐⭐⭐",
+        3:"⭐⭐⭐",
+        2:"⭐⭐",
+        1:"⭐"
+        }
     star_image = []
     for i in range(len(rating_result)):
-        if rating_result[i][0] == 5:
-            star_image.append("⭐⭐⭐⭐⭐")
-        if rating_result[i][0] == 4:
-            star_image.append("⭐⭐⭐⭐")
-        if rating_result[i][0] == 3:
-            star_image.append("⭐⭐⭐")
-        if rating_result[i][0] == 2:
-            star_image.append("⭐⭐")
-        if rating_result[i][0] == 1:
-            star_image.append("⭐")            
-    
+        star_image.append(star_dict[rating_result[i][0]])
+   
     # pull online imgs for each sign
     img = {
             "Aquarius": "https://images.unsplash.com/photo-1570015329194-675ae0cf2516?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
