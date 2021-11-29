@@ -1,5 +1,4 @@
-from flask import Flask, render_template, json, url_for, request, redirect
-import os
+from flask import Flask, render_template, json
 import json
 import requests
 import datetime
@@ -146,7 +145,7 @@ def travel(sign):
     for i in range(len(rating_result)):
         star_image.append(star_dict[rating_result[i][0]])
    
-    # pull online imgs for each sign
+    # pull online imgs for travel locations for all signs
     img = {
             "Aquarius": "https://images.unsplash.com/photo-1570015329194-675ae0cf2516?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "Aries": "https://images.unsplash.com/photo-1557528263-efac13096ad1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=764&q=80",
@@ -161,7 +160,6 @@ def travel(sign):
             "Taurus": "https://images.unsplash.com/photo-1620658927695-c33df6fb8130?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=735&q=80",
             "Virgo": "https://images.unsplash.com/photo-1516496636080-14fb876e029d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=688&q=80"
             }
-
     return render_template("travel.html", wiki_result=wiki_result, where=where[sign]['location'], sign=sign, img=img[sign], rating=rating_result, star_image=star_image)
 
 # Listener

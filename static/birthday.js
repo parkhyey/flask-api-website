@@ -1,3 +1,4 @@
+// JS function to support dropdown search feature to find star signs
 function birthdayfunc() {
     var select = document.getElementById("birthday");
     var bir = select.value;
