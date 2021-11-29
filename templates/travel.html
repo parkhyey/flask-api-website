@@ -1,39 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Astrology Zone</title>
-    <link rel="stylesheet" href="../static/styles.css" />
-  </head>
-  <body>
-    <!-- back button -->
-    <div>
-      <input type="button" id="back" value="Back" onclick="history.back()" />
-    </div>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Astrology Zone</title>
+		<link rel="stylesheet" href="../static/styles.css" />
+	</head>
 
-    <div class="subpages">
-      <div class="subtitles">Destiny Travel for {{ sign }}</div>
+	<body>
+		<!-- back button -->
+		<div>
+			<input type="button" id="back" value="Back" onclick="history.back()" />
+		</div>
 
-      <div id="travel-text">
-        <div id="your-sign">[ {{ where }} ]</div>
-        <p id="wiki-result">{{ wiki_result }}</p>
-      </div><br />
+		<div class="subpages">
+			<div class="subtitles">Destiny Travel for {{ sign }}</div>
 
-      <div id="travel">
-        <div id="picture">
-          <img src="{{ img }}" width="500" height="350" />
-        </div>
-        <div id="maps">
-          <img src="{{ maps }}" width="500" height="350" />
-        </div>
-      </div>
+			<div id="travel-text">
+				<div id="your-sign">[ {{ where }} ]</div>
+				<p id="wiki-result">{{ wiki_result }}</p>
+			</div>
+			<br />
 
-      <div id="rating">
-        <span id="stars1">{{ star_image[0] }}</span><br>{{ rating[0][1] }}<br>
-        <span id="stars2">{{ star_image[1] }}</span><br>{{ rating[1][1] }}<br>
-      </div>
-    </div>
-  </body>
+			<div id="travel">
+				<div id="picture">
+					<img src="{{ img }}" width="900" height="600" />
+				</div>
+			</div>
+
+			<div id="rating">
+				<span id="stars1">{{ star_image[0] }}</span><br />{{ rating[0][1] }}<br />
+				<span id="stars2">{{ star_image[1] }}</span><br />{{ rating[1][1] }}<br />
+			</div>
+		</div>
+	</body>
 </html>

@@ -184,10 +184,9 @@ hr {
 }
 #travel {
   display: block;
-  column-count: 2;
 }
 #picture {
-  text-align: right;
+  text-align: center;
 }
 #travel-text p {
   margin: auto;

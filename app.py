@@ -1,4 +1,3 @@
-# Dependencies
 from flask import Flask, render_template, json, url_for, request, redirect
 import os
 import json
@@ -17,20 +16,19 @@ def root():
     """Render index.html as home page"""
     return render_template("index.html")
 
-
 @app.route("/index")
 def index():
     """Render index.html as home page"""
     return render_template("index.html")
 
-
 # Pages for each star sign
 @app.route("/signs/<signs>")
 def signs(signs):
-    # retrieve Wiki "Main" info from Wiki microservice
+    """Render signs.html with wiki info using microservice"""
+    # retrieve Wiki info using Wiki scraper microservice
     response = requests.get("http://flip1.engr.oregonstate.edu:4753/" + signs + " (astrology)")
     wiki = json.loads(response.text)    
-    # display symbols
+    # star sign symbols to display
     symbol = {
             "Aquarius": "♒︎",
             "Aries": "♈︎",
@@ -47,12 +45,10 @@ def signs(signs):
             }
     return render_template("signs.html", wiki=wiki, signs=signs, symbol=symbol[signs])
 
-
 # Compatibility
 @app.route("/compatibility/<sign>")
 def compatibility(sign):
-    """Render compatibility.html"""
-    # pull online imgs for compatibility
+    """Render compatibility.html with online imgs about compatibility pulled for selected <sign>"""
     img = {
             "Aquarius": "https://numerologysign.com/wp-content/uploads/2020/09/Aquarius-Compatibility-Chart-Zodiac-Sign-Percentages-768x819.png.webp",
             "Aries": "https://numerologysign.com/wp-content/uploads/2020/09/Aries-Compatibility-Chart-Zodiac-Sign-Percentages-768x819.png.webp",
@@ -69,13 +65,15 @@ def compatibility(sign):
             }
     return render_template("compatibility.html", sign=sign, img=img[sign])
 
-
 # Horoscope
 @app.route("/horoscope/<sign>", methods=['POST', 'GET'])
 def horoscope(sign):
-    """Gets daily horoscope from Aztro API"""
+    """Renders horoscope.html and gets daily horoscope using Aztro API"""
     url = "https://sameer-kumar-aztro-v1.p.rapidapi.com/"
-    querystring = {"sign":sign, "day":"yesterday"}
+    querystring = {
+        "sign":sign, 
+        "day":"yesterday"
+        }
     headers = {
         'x-rapidapi-host': "sameer-kumar-aztro-v1.p.rapidapi.com",
         'x-rapidapi-key': "c232a67fd7msh5d9690a65c5ee5ep19f6a0jsn958fd5326d04"
@@ -98,12 +96,12 @@ def horoscope(sign):
             }
     return render_template("horoscope.html", sign=sign, horoscope=horoscope, img=img[sign])
 
-
 # Travel
 @app.route("/travel/<sign>", methods=['POST', 'GET'])
 def travel(sign):
-    """Scrapes and returns wiki page history section for the places assigned for each sign"""
-    # locations for each sign, find place_id at https://developers.google.com/places/place-id
+    """Renders travel.html with wiki page info using microservice for selected <sign>"""
+    # variable to store travel locations and the corresponding place_id for each sign
+    # find place_id at https://developers.google.com/places/place-id
     where = {
             "Aquarius": { "location": "Zakynthos", "place_id": "ChIJeWd9-9M7ZxMRN32bkyGz-GI" },
             "Aries": { "location": "Bondi Beach", "place_id": "ChIJn5qtqpytEmsRn2juKNy2hjQ" },
@@ -119,7 +117,7 @@ def travel(sign):
             "Virgo": { "location": "Singapore", "place_id": "ChIJ6SvldwoR2jERHyZaM5NvIm4" }
             }
 
-    # retrieve Wiki info for travel locations from Wiki microservice
+    # retrieve Wiki info for travel locations using Wiki scraper microservice
     response = requests.get("http://flip1.engr.oregonstate.edu:4753/" + where[sign]['location'])
     response_json = json.loads(response.text)
     if "History" in response_json:
@@ -127,12 +125,12 @@ def travel(sign):
     else:
         wiki_result = response_json["Main"]
 
-    # retrieve Google reviews for travel locations from Google review microservice
+    # retrieve Google reviews for travel locations using Google review microservice
     response_rating = requests.get("http://flip3.engr.oregonstate.edu:33233/" + where[sign]['place_id'])
     response_json_rating = json.loads(response_rating.text)
-    print(response_json_rating)
     rating_result = []
 
+    # get star rating and review text
     for i in range(len(response_json_rating)):
         rating_result.append((response_json_rating[i]["rating"], response_json_rating[i]["text"]))
 
@@ -167,7 +165,6 @@ def travel(sign):
             }
 
     return render_template("travel.html", wiki_result=wiki_result, where=where[sign]['location'], sign=sign, img=img[sign], rating=rating_result, star_image=star_image)
-
 
 # Listener
 if __name__ == "__main__":

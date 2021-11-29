@@ -1,36 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astrology Zone</title>
-    <link rel="stylesheet" href="../static/styles.css">
-</head>
-<body>
-    <div>
-        <input type="button" id="back" value="Back" onclick="history.back()" />
-    </div>
-    <div id="header"></div>
-    <div id="sign-no-padding">[ {{ signs }} ]</div>
-    <div class="general-info">
-        <h3>{{ symbol }}</h3>
-        <p>{{ wiki["Main"] }}</p>
-    </div>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Astrology Zone</title>
+		<link rel="stylesheet" href="../static/styles.css">
+	</head>
 
-    <!-- service selections -->
-    <hr><div id="select">Select your service below</div>
-    <div class="select-class">
-        <a href="../horoscope/{{ signs }}"><div class="select-list">Daily Horoscope
-            <!-- <div id="service-image"><img src="../static/img/horoscope.jpg" width="180" height="100"/></div> -->
-        </div>
-        <a href="../compatibility/{{ signs }}"><div class="select-list">Compatibility
-            <!-- <div id="service-image"><img src="../static/img/compatibility.jpg" width="180" height="100"/></div> -->
-        </div>
-        <a href="../travel/{{ signs }}"><div class="select-list" id="Aries">Destiny Travel
-            <!-- <div id="service-image"><img src="../static/img/travel.jpg" width="180" height="100"/></div> -->
-        </div>
-    </div>
-    <script src="../static/header.js"></script>
-</body>
+	<body>
+		<!-- back button -->
+		<div>
+			<input type="button" id="back" value="Back" onclick="history.back()" />
+		</div>
+		<div id="header"></div>
+		<div id="sign-no-padding">[ {{ signs }} ]</div>
+		<div class="general-info">
+			<h3>{{ symbol }}</h3>
+			<!-- retrieve "Main" section of Wiki page -->
+			<p>{{ wiki["Main"] }}</p>
+		</div>
+
+		<!-- service selections based on signs -->
+		<hr>
+		<div id="select">Select your service below</div>
+		<div class="select-class">
+			<a href="../horoscope/{{ signs }}">
+				<div class="select-list">Daily Horoscope
+				</div>
+			<a href="../compatibility/{{ signs }}">
+				<div class="select-list">Compatibility
+				</div>
+			<a href="../travel/{{ signs }}">
+				<div class="select-list" id="Aries">Destiny Travel
+				</div>
+		</div>
+		<script src="../static/header.js"></script>
+	</body>
 </html>
