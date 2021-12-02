@@ -231,9 +231,6 @@ hr {
 }
 /* travel.html */
 #travel {
-  display: block;
-}
-#picture {
   text-align: center;
 }
 #travel-text p {
