@@ -1,4 +1,5 @@
 from flask import Flask, render_template, json
+import os
 import json
 import requests
 import datetime
@@ -164,4 +165,5 @@ def travel(sign):
 
 # Listener
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 17995))
+    app.run(host='0.0.0.0', port=port)
