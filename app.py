@@ -125,7 +125,7 @@ def travel(sign):
         wiki_result = response_json["Main"]
 
     # retrieve Google reviews for travel locations using Google review microservice
-    response_rating = requests.get("http://flip3.engr.oregonstate.edu:33233/" + where[sign]['place_id'])
+    response_rating = requests.get("https://google-review-scraper.herokuapp.com/" + where[sign]['place_id'])
     response_json_rating = json.loads(response_rating.text)
     rating_result = []
 
