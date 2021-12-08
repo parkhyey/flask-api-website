@@ -25,7 +25,7 @@ def index():
 def signs(signs):
     """Render signs.html with wiki info using microservice"""
     # retrieve Wiki info using Wiki scraper microservice
-    response = requests.get("http://flip1.engr.oregonstate.edu:4753/" + signs + " (astrology)")
+    response = requests.get("https://wiki-scraper-r.herokuapp.com/" + signs + " (astrology)")
     wiki = json.loads(response.text)    
     # star sign symbols to display
     symbol = {
@@ -117,7 +117,7 @@ def travel(sign):
             }
 
     # retrieve Wiki info for travel locations using Wiki scraper microservice
-    response = requests.get("http://flip1.engr.oregonstate.edu:4753/" + where[sign]['location'])
+    response = requests.get("https://wiki-scraper-r.herokuapp.com/" + where[sign]['location'])
     response_json = json.loads(response.text)
     if "History" in response_json:
         wiki_result = response_json["History"]
